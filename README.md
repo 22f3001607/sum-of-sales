@@ -1,20 +1,20 @@
 # sum-of-sales
 
 ## Overview
-Publish a single-page site that fetches data.csv from attachments, sums its sales column, sets the title to "Sales Summary 12345", displays the total inside #total-sales, and loads Bootstrap 5 from jsdelivr.
+Add a Bootstrap table #product-sales that lists each product with its total sales and keeps #total-sales accurate after render.
 
-**Round:** 1  
+**Round:** 2  
 **Status:** ✅ Successfully Generated
 
 ## Features
-- Initial implementation of sum-of-sales
-- Self-contained HTML file with inline CSS and JavaScript
-- No external dependencies
+- Enhanced version with updates from Round 2
+- Maintains backward compatibility with previous functionality
+- New features as per requirements: Add a Bootstrap table #product-sales that lists each product with its total sales and keeps #total-s...
 
 ## Technical Details
 - **HTML5** with semantic markup
 - **Inline CSS** for styling (~100 lines estimated)
-- **Vanilla JavaScript** for functionality (~21 lines)
+- **Vanilla JavaScript** for functionality (~31 lines)
 - **No external dependencies** - runs completely offline
 
 ## Setup & Usage
@@ -56,8 +56,8 @@ The application uses vanilla JavaScript for all interactivity:
 
 ## Development Notes
 
-### Round 1 Changes
-Publish a single-page site that fetches data.csv from attachments, sums its sales column, sets the title to "Sales Summary 12345", displays the total inside #total-sales, and loads Bootstrap 5 from jsdelivr.
+### Round 2 Changes
+Add a Bootstrap table #product-sales that lists each product with its total sales and keeps #total-sales accurate after render.
 
 ### Future Improvements
 - Further feature enhancements based on user feedback
@@ -68,6 +68,6 @@ Publish a single-page site that fetches data.csv from attachments, sums its sale
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Generated
-- **Round:** 1
+- **Round:** 2
 - **Generated:** Automatically via AI
-- **File Size:** 1634 bytes
+- **File Size:** 2685 bytes
