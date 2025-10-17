@@ -39,12 +39,21 @@
         th {
             background-color: #f1f1f1;
         }
+        #currency-picker {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Sales Summary</h1>
         <div id="total-sales">Total Sales: $0</div>
+        <select id="currency-picker">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="JPY">JPY</option>
+        </select>
         <table id="product-sales">
             <thead>
                 <tr>
@@ -56,6 +65,13 @@
         </table>
     </div>
     <script>
+        const currencyRates = {
+            "USD": 1,
+            "EUR": 0.85,
+            "GBP": 0.75,
+            "JPY": 110
+        };
+
         async function fetchData() {
             const response = await fetch('data.csv');
             const data = await response.text();
@@ -75,15 +91,31 @@
                 }
             });
 
-            document.getElementById('total-sales').textContent = 'Total Sales: $' + totalSales.toFixed(2);
+            updateTotalSales(totalSales);
+            populateProductSales(productSales);
+        }
 
+        function updateTotalSales(totalSales) {
+            const selectedCurrency = document.getElementById('currency-picker').value;
+            const convertedTotal = (totalSales * currencyRates[selectedCurrency]).toFixed(2);
+            document.getElementById('total-sales').textContent = `Total Sales: ${selectedCurrency} ${convertedTotal}`;
+        }
+
+        function populateProductSales(productSales) {
             const tbody = document.querySelector('#product-sales tbody');
+            tbody.innerHTML = '';
             for (const product in productSales) {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${product}</td><td>$${productSales[product].toFixed(2)}</td>`;
+                const selectedCurrency = document.getElementById('currency-picker').value;
+                const convertedSales = (productSales[product] * currencyRates[selectedCurrency]).toFixed(2);
+                tr.innerHTML = `<td>${product}</td><td>${selectedCurrency} ${convertedSales}</td>`;
                 tbody.appendChild(tr);
             }
         }
+
+        document.getElementById('currency-picker').addEventListener('change', () => {
+            fetchData();
+        });
 
         fetchData();
     </script>

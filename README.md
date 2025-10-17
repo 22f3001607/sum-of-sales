@@ -1,7 +1,7 @@
 # sum-of-sales
 
 ## Overview
-Add a Bootstrap table #product-sales that lists each product with its total sales and keeps #total-sales accurate after render.
+Introduce a currency select #currency-picker that converts the computed total using rates.json from attachments and mirrors the active currency inside #total-currency.
 
 **Round:** 2  
 **Status:** ✅ Successfully Generated
@@ -9,12 +9,12 @@ Add a Bootstrap table #product-sales that lists each product with its total sale
 ## Features
 - Enhanced version with updates from Round 2
 - Maintains backward compatibility with previous functionality
-- New features as per requirements: Add a Bootstrap table #product-sales that lists each product with its total sales and keeps #total-s...
+- New features as per requirements: Introduce a currency select #currency-picker that converts the computed total using rates.json from ...
 
 ## Technical Details
 - **HTML5** with semantic markup
 - **Inline CSS** for styling (~100 lines estimated)
-- **Vanilla JavaScript** for functionality (~31 lines)
+- **Vanilla JavaScript** for functionality (~54 lines)
 - **No external dependencies** - runs completely offline
 
 ## Setup & Usage
@@ -46,6 +46,11 @@ The application uses vanilla JavaScript for all interactivity:
 
 **Key Functions:**
 - `fetchData()`: Core functionality handler
+- `updateTotalSales()`: Core functionality handler
+- `populateProductSales()`: Core functionality handler
+
+**Event Handling:**
+- Interactive elements with event listeners
 - API integration for external data
 
 ## Browser Compatibility
@@ -57,7 +62,7 @@ The application uses vanilla JavaScript for all interactivity:
 ## Development Notes
 
 ### Round 2 Changes
-Add a Bootstrap table #product-sales that lists each product with its total sales and keeps #total-sales accurate after render.
+Introduce a currency select #currency-picker that converts the computed total using rates.json from attachments and mirrors the active currency inside #total-currency.
 
 ### Future Improvements
 - Further feature enhancements based on user feedback
@@ -70,4 +75,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Generated
 - **Round:** 2
 - **Generated:** Automatically via AI
-- **File Size:** 2685 bytes
+- **File Size:** 3892 bytes
