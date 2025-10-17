@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Summary 12345</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #343a40;
+        }
+        #total-sales {
+            font-size: 2em;
+            color: #28a745;
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sales Summary</h1>
+        <div id="total-sales">Total Sales: $0</div>
+    </div>
+    <script>
+        async function fetchData() {
+            const response = await fetch('data.csv');
+            const data = await response.text();
+            const rows = data.split('\n').slice(1); // Skip header row
+            let totalSales = 0;
+
+            rows.forEach(row => {
+                const columns = row.split(',');
+                if (columns.length > 1) {
+                    const sales = parseFloat(columns[1]);
+                    if (!isNaN(sales)) {
+                        totalSales += sales;
+                    }
+                }
+            });
+
+            document.getElementById('total-sales').textContent = 'Total Sales: $' + totalSales.toFixed(2);
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
